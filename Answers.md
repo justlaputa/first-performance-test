@@ -42,4 +42,10 @@ I have several ideas to improve this code:
 The bug of this code can be easily detected by unit test, and we can use test to verify our fix, prevent regression.
 
 2. fix the bug by creating a copy of the original object
-I choose to use ES2015's `Object.assign`, as it can be used to copy an object's eenumerable own properties to another.
+I choose to use ES2015's `Object.assign`, as it can be used to copy an object's enumerable own properties to another.
+
+3. small improve of variable naming
+The argument variable naming of function `tenPercentOffOf` is not so good, using `obj` does not show the applying target of this function, so I modify it to be `inventoryItem`, make it better explain what object's price I want to change
+
+4. to do more about immutable
+Assume that we will implement more bargain functions like this one(twentyPercentOff, halfPriceWithBundle, etc), to prevent each time copy object, we can use `immutable.js` to make the original inventory object not changeable. To do this, I initialized the inventory object by using immutable Record constructor, and inside the `tenPercentOffOf`, just set the new price, it will automatically return a new copy of the object.

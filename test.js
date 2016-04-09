@@ -1,14 +1,16 @@
 var expect = require('chai').expect
 var bargain = require('./QuickJSQuestion')
+var Record = require('immutable').Record
 
 describe('Testing suit for bargain', function() {
   var inventoryItem = null
+  var InventoryRecord = Record({name: '', price: 0})
 
   beforeEach(function() {
-    inventoryItem = {
+    inventoryItem = new InventoryRecord({
         name: 'Banana Slicer',
         price: 2.99
-    }
+    })
   })
 
   describe('tenPercentOffOf bargain', function() {

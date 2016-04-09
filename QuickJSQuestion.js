@@ -1,17 +1,22 @@
+var assign = require('object-assign')
+var Immutable = require('immutable')
+
+var InventoryItem = Immutable.Record({name: '', price: 0})
+
 var inventory = {
-    '000001': {
+    '000001': new InventoryItem({
         name: 'Banana Slicer',
         price: 2.99
-    },
-    '000002': {
+    }),
+    '000002': new InventoryItem({
         name: 'Three Wolves Tea Cozy',
         price: 14.95
-    }
+    })
 };
 
-function tenPercentOffOf (obj) {
-    obj.price = Math.round(0.9 * obj.price * 100) / 100;
-    return obj;
+function tenPercentOffOf (inventoryItem) {
+    newItem = inventoryItem.set('price', Math.round(0.9 * inventoryItem.price * 100) / 100);
+    return newItem;
 }
 
 exports.tenPercentOffOf = tenPercentOffOf
