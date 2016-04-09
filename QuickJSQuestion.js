@@ -14,6 +14,8 @@ function tenPercentOffOf (obj) {
     return obj;
 }
 
+exports.tenPercentOffOf = tenPercentOffOf
+
 // INSTRUCTIONS
 //
 // Please refer to the following Javascript variable declaration. When submitting your

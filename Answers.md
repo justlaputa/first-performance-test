@@ -35,3 +35,11 @@ The price of `bargainBananaSlicer.price` will be 2.69 (Math.round(0.9 * 2.99 * 1
 It will be the same as `bargainBananaSlicer.price`, 2.69. As the function `tenPercentOffOf` modifies the original object inside `inventory`.
 
 #### Question 3: Can you suggest ways to improve this code?
+
+I have several ideas to improve this code:
+
+1. add unit test
+The bug of this code can be easily detected by unit test, and we can use test to verify our fix, prevent regression.
+
+2. fix the bug by creating a copy of the original object
+I choose to use ES2015's `Object.assign`, as it can be used to copy an object's eenumerable own properties to another.
